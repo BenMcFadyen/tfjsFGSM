@@ -1,13 +1,21 @@
-import { Component } from '@angular/core';
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import {IMAGENET_CLASSES} from '@tensorflow-models/mobilenet/dist/imagenet_classes';
+import {Component, Inject} from '@angular/core';
+
+export interface DialogData 
+{
+  animal: string;
+  name: string;
+}
+
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css']
 })
+
 export class AppComponent 
 {
 	imgUrl = 'assets/cat.jpg'
@@ -16,6 +24,9 @@ export class AppComponent
 	imgChannels:number = 3
 
 	canvas: HTMLCanvasElement
+
+ 	constructor() {}
+
 
 	onImgLoad()
 	{
